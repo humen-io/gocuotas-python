@@ -48,7 +48,7 @@ jobs:
     needs: test
     if: |
       (github.event_name == 'release' && github.event.action == 'published') ||
-      github.event_name == 'workflow_dispatch'
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main')
     permissions:
       id-token: write
     steps:
